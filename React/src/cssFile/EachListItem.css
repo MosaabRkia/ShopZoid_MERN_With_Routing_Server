@@ -1,0 +1,22 @@
+#profileItem{ 
+    width: 91%;
+    list-style: none;
+    text-align: center;
+    height: fit-content;
+    margin-top: 19px;
+    border: 1px solid black;
+}
+#profileImg{
+    width:100%;
+}
+#profileTittle{
+    color: white;
+    margin: 1px;
+    font-weight: bold;
+}
+#profilePrice{
+    color: white;
+    font-size: 20px;
+    margin:5px;
+    font-weight: bold;
+}

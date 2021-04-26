@@ -1,0 +1,59 @@
+#RegisterForm{
+    color: rgb(255, 255, 255);
+    font-style: italic;
+    font-weight: bold;
+    text-align: center;
+    margin: 0 40px 5px 40px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+}
+.makeSpace{
+    margin:0px 15% 28px 15%;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    text-align: center;
+}
+.makeSpace:focus{
+    background-color: rgb(105, 0, 131);
+    color:white;
+}
+.makeSpace:focus::placeholder{
+    color:white;
+}
+.makeSpace::placeholder{
+    text-align: center;  
+}
+
+.makeSpaceButton{
+    border-radius: 10px;
+    border-radius: 10px;
+    margin: 28px 5% 5px 5%;
+    height: 50px;
+}
+.makeSpaceButton:hover{
+    background-color: rgb(105, 0, 131);
+    font-weight: bold;
+    font-size: 16px;
+    color:white;
+}
+#titlesRegisterP{
+    text-align: center;
+}
+#LOGOReg{
+    width: 250px;
+    height: 150px;
+}
+#conPassReg{
+    margin-bottom: 0;
+}
+#backArrow{
+    margin:10px;
+    width: 45px;
+    top: 14px;
+    left: 20px;
+}
+#ListShow{
+    margin:10px;
+}

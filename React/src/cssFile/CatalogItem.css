@@ -1,0 +1,23 @@
+
+#eachDivCatalog{
+    margin: 1.5%;
+    position: relative;
+    border: 2px solid black;
+    border-radius: 10px;
+    height: 211px;
+    margin:20px;
+    text-align: center;
+}
+#photoInsideCatalogItem{
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+#textInsideCtalogItem{
+    position: absolute;
+    bottom: 0;
+    left: 17%;
+    color: rgb(255, 255, 255);
+    font-style:inherit;
+    font-weight: bold;
+}

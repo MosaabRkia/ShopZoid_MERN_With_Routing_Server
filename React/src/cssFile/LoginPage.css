@@ -1,0 +1,58 @@
+#imgLogin {
+    width: 100%;
+    position: relative;
+}
+#DivLoginInputs{
+    margin: 5% 5% 2% 9%;
+    color: white;
+}
+.loginInput{
+    width:90%;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}
+.loginInput:focus{
+    background-color:rgb(95, 0, 79);
+    color:white;
+}
+#savePasswordInput{
+    margin: 3% 5% 2% 9%;
+}
+#typeForInput{
+    margin-bottom: 2px;
+    margin-top: 3%;
+    
+}
+#buttonLoginDiv{
+    margin: 3% 5% 2% 9%; 
+}
+#buttonLoginDiv{
+    margin: 3% 5% 2% 9%;
+    color:black;
+}
+#ButtonLogin{
+    background-color: rgb(79, 0, 99);
+    color:white;
+}
+#ButtonLogin:hover{
+    background-color: rgb(105, 0, 131);
+    font-weight: bold;
+    font-size: 16px;
+}
+#ButtonLogin:focus::placeholder{
+    color:white;
+}
+
+
+#goToRegisterFromLogin{
+    margin: 8% 11% 0 9%;
+}
+#LOGOlog{
+    width: 119px;
+    height: 88px;
+    position: absolute;
+    top: -26px;
+    right: 0;
+    margin: 0;
+}

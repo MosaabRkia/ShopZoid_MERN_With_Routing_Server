@@ -1,0 +1,30 @@
+#imageThatSlider{
+    margin: 5%;
+    width: 90%;
+    height: 270px;
+    border-radius: 40px;
+    border: 8px solid black;
+    position: relative;
+}
+#NextArrow{
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    background-color: white;
+    bottom: 9%;
+    right: 8%;
+    border-radius: 60px;
+    transform: rotate(180deg);
+}
+#PrevArrow{
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    background-color: white;
+    bottom: 9%;
+    left: 8%;
+    border-radius: 60px;
+}
+#slider{
+    position:relative;
+}

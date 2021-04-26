@@ -1,0 +1,10 @@
+.card{
+    margin: 10%;
+    text-align: center;
+    margin-bottom: 25px;
+}
+.card-footer{
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}

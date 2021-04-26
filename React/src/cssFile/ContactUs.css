@@ -1,0 +1,36 @@
+#policityAndTerms{
+    border: 10px solid;
+    text-align: center;
+    margin: 13px;
+    color: white;
+}
+#tittle{
+    font-weight: bold;
+    margin: 18px;
+    font-size: 24px;
+}
+#parag{
+    font-family: ui-serif;
+}
+#tittleselect{
+    margin: auto auto auto 5%;
+    color: white;
+}
+#sel1{
+    margin: 5%;
+    width: 70%;
+}
+.form-control{
+    margin: 5%;
+    width: 70%;
+}
+#orderId{
+    width: 70%;
+    border: 2px solid darkred;
+    margin: 5%;
+    display: block;
+    height: 39px;
+}
+#buttonContact{
+    margin: 3%;
+}

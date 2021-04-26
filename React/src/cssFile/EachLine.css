@@ -1,0 +1,19 @@
+#imgOrder{
+    width: 100px;
+    height: 100px;
+}
+#orderIdText{
+    top: 40px;
+    right: 100px;
+}
+#orderPriceText{
+    top: 71px;
+    right: 132px;
+}
+#typeDiv{
+    font-size: 20px;
+    margin: 19px;
+}
+#photoDiv{
+    margin: 20px;
+}

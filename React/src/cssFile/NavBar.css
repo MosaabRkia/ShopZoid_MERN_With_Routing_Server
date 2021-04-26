@@ -1,0 +1,20 @@
+#allNavBar{
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border:2px solid black;
+    width: 100%;
+}
+#cartButton,#ListShow{
+    width:50px;
+    height:50px;
+    margin: 5px;
+}
+#Logo {
+    width: 167px;
+    height: 70px;
+}
+@keyframes show {
+	from {transform: rotate(0deg);}
+	to { transform: rotate(315deg);}
+}
