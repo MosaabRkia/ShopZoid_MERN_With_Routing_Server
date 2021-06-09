@@ -18,8 +18,10 @@ import '../src/cssFile/body.css'
 import PaymentPage from "./components/PaymentPage";
 import SucessfullyPageOrdered from "./components/SucessfullyPageOrdered";
 import PageSucessfullySentContact from "./components/PageSucessfullySentContact";
-import AdminPage from "./components/AdminPage";
+import AllItemsPageAdmin from "./components/AllItemsPageAdmin";
 import OrdersListAdmin from "./components/OrdersListAdmin";
+import AdminPage from "./components/AdminPage";
+import LoadingPage from "./components/LoadingPage";
 
 function App(props) {
   const [allItems , setAllItems] = useState();
@@ -79,7 +81,10 @@ function AddOrderPlaced(e){
         <OrdersListAdmin/>
         </Route>
         <Route exact path="/AdminPage">
-          <AdminPage ChangePrice={ChangePrice} CreateNewItem={CreateNewItem}  />
+          <AdminPage  />
+        </Route>
+        <Route exact path="/AllItemsPageAdmin">
+          <AllItemsPageAdmin  />
         </Route>
       <Route exact path="/SucessfullyPageOrdered">
           <SucessfullyPageOrdered />
@@ -147,6 +152,10 @@ function AddOrderPlaced(e){
         <Route exact path="/EditProfile">
           <EditProfile />
         </Route>
+
+<Route exact path="/LoadingPage">
+  <LoadingPage />
+</Route>
 
         <Route exact path="/CartPage">
           <CartPage  AddOrderPlaced={AddOrderPlaced} cartArray={cartArray}/>

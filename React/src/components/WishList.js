@@ -12,7 +12,7 @@ import NavBar from './NavBar'
 
 
     return (
-        <div>
+        <div style={{minWidth:"375px",maxWidth:"600px",margin:"auto"}}>
             <NavBar toLink="/ProfilePage" Page="MyProfilePage"/>
             <ul className="list-group">
             {

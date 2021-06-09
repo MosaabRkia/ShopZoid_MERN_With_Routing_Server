@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import '../cssFile/EachListItem.css'
 import { Link, withRouter } from 'react-router-dom'
 
  function EachListItem(props) {
+
 
 function ViewItem(ItemId){
   fetch('/LoadPageItem',{
@@ -35,7 +36,7 @@ fetch('/add-CartList',{
       <h4 id="profileTittle">{props.Item.title}</h4>
       <small id="profilePrice">{props.Item.price}$</small><br/>
       </Link>
-      <button disabled={props.Added} onClick={AddToCart} style={{marginBottom:"5px",backgroundColor:props.Added?"gray":"blue"}} className="btn btn-primary">{props.Added?"Already In Cart":"Add to Cart"}</button>
+      <button disabled={props.Added} onClick={AddToCart} style={{marginBottom:"5px",backgroundColor:props.Added?"gray":"black"}} id="buttonAddToCart">{props.Added?"Already In Cart":"Add to Cart"}</button>
     </li>
 
   );

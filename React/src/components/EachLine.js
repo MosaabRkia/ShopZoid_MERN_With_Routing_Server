@@ -41,14 +41,14 @@ function RemoveFromWishList(){
 
 
   if(props.type == "PaymentPage"){
-    return (<li key={props.e.id} style={{display:"flex",margin:"5px"}} className="list-group-item">
+    return (<li style={{display:"flex",margin:"5px"}} className="list-group-item">
     <div id="photoDiv">
-      <img id="imgOrder" src={props.e.item.imgsrc} />
+      <img id="imgOrderCart" src={props.e.item.imgsrc} />
     </div>
     <div id="typeDiv">
-      <p id="orderIdText">Id : {props.e.id}</p>
-      <p>quantity : {props.e.quantity}</p>
-      <p id="orderPriceText">Total Price : {props.e.item.price * props.e.quantity}$</p>
+      <p id="titleOfCart">{props.e.item.title}</p>
+      <p id="priceCart">US {props.e.item.price}$</p>
+      <p style={{position:"relative",top:"25px",left:"60px",fontSize:"17px"}}>- {props.e.quantity} pcs</p>
     </div>
   </li>
 );
@@ -73,14 +73,13 @@ function RemoveFromWishList(){
     if(props.type == "CartList"){
       return (<li key={props.e.orderId} style={{display:"flex",margin:"5px"}} className="list-group-item">
       <div id="photoDiv">
-        <img id="imgOrder" src={props.e.imgsrc} />
+        <img id="imgOrderCart" src={props.e.imgsrc} />
       </div>
       <div id="typeDiv">
-        <p id="orderIdText"> Id Item : {props.e.id}</p>
-        <p>quantity : {props.quantity}</p>
-        <p id="orderPriceText">Price : {props.e.price}$</p>
-        <input onChange={changeQuantity} placeholder="1" style={{width:"70%",marginBottom:"5%"}} id={`IdQuantity${props.e.id}`} type="number"/><br/>
-        <button onClick={RemoveOne} className="btn btn-danger">Remove</button>
+        <p id="titleOfCart">{props.e.title}</p>
+        <p id="priceCart">US {props.e.price}$</p>
+        <input onChange={changeQuantity} placeholder="1"  id="quantityCart" type="number"/>
+        <button onClick={RemoveOne} id="deleteButton">🗑</button>
       </div>
     </li>
   );

@@ -75,7 +75,7 @@ app.post("/Register", async (req, res) => {
       id: newId,
       FirstName: newUsr.firstName,
       LastName: newUsr.lastName,
-      Email: newUsr.email,
+      Email: newUsr.email.toLowerCase(),
       Password: newUsr.password,
       curPassword: newUsr.conPassword,
       rank: "member",
@@ -93,7 +93,7 @@ app.post("/Register", async (req, res) => {
 
 //login / logout
 app.get('/logout',(req, res)=>{
-      res.cookie("rol", ""); 
+  res.clearCookie('rol')
        res.send({logout:true})
 
 
@@ -102,7 +102,7 @@ app.post("/login", async (req, res) => {
   const checkUsr = req.body;
 
   let checkExits = await User.findOne({
-    Email: checkUsr.loginEmail,
+    Email: checkUsr.loginEmail.toLowerCase(),
     Password: checkUsr.loginPassword,
   });
   if (checkExits) {
@@ -413,6 +413,16 @@ app.get('/getPlacedOrders',async (req,res)=>{
 // });
 
 ////////////////////////////////admin
+
+app.get('/AdminOrNot',async (req,res)=>{
+  let idOfUser = req.cookies.rol;
+  let findUser = await User.findOne({ id: idOfUser });
+  if(findUser){
+     res.send({rank:findUser.rank})
+  }else
+  res.send({rank:'Error'})
+})
+
 app.post("/changeStatus",async(req,res)=>{
   const data = req.body;
   let idOfUser = req.cookies.rol;
@@ -449,10 +459,14 @@ app.post('/userName',async (req,res)=>{
   let findUser = await User.findOne({ id: idOfUser });
   if(findUser && findUser.rank == "admin"){
  
+     try {
       const user = User.find({ id:data.id},(err,e)=>{
         let fullName = e[0].FirstName + " " + e[0].LastName
         res.send({fullName})
       })
+     }catch{
+      res.send({fullName:"User Not Found!"})
+     }
       
     
 
@@ -548,7 +562,10 @@ app.post("/removeItem", async (req, res) => {
       res.send(e)
     }).sort({price:-1}
  */
-
+      app.get('*', function(req, res){
+        res.send('Sorry, this is an invalid URL.');
+     });
+     
 app.post("/SearchAdminPage", (req, res) => {
   const data = req.body;
   let arr = []

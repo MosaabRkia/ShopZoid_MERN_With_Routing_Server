@@ -3,7 +3,7 @@ import { Link, withRouter } from 'react-router-dom'
 
 function PageSucessfullySentContact() {
     return (
-        <div>
+        <div style={{minWidth:"375px",maxWidth:"600px",margin:"auto"}}>
             <h1>Thank you for Contacting us</h1>
             <Link to="/MainPage">Go To Main Page..</Link>
         </div>

@@ -17,10 +17,11 @@ function PaymentPage(props) {
          fetch('/gettotalCart').then(r=>r.json()).then(data=>setTotal(data.total))
      },[])
     return (
-        <div>
-              <NavBar Page="PaymentPage" /> 
+        <div style={{minWidth:"375px",maxWidth:"600px",margin:"auto"}}>
+              <NavBar Page="CartPage" toLink="/CartPage" /> 
               {
                   !!list&&list.map(e=>{
+                      console.log(e)
                     return  <EachLine type="PaymentPage" e={e}/>
                   })
               }

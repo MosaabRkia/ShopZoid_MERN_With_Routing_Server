@@ -4,7 +4,7 @@ import CircleButton from "./CircleButton";
 import '../cssFile/SucessfullyPageOrdered.css'
 function SucessfullyPageOrdered() {
   return (
-    <div id="AllDiv">
+    <div style={{minWidth:"375px",maxWidth:"600px",margin:"auto"}} id="AllDiv">
       <CircleButton
         word="Main Page"
         toLink="/MainPage"

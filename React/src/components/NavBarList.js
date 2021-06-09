@@ -5,7 +5,7 @@ import { Link, withRouter } from "react-router-dom";
 
  function NavBarList(props) {
    function logout(){
-     fetch('/login').then(r=>r.json()).then(data=>{console.log(data)})
+     fetch('/logout').then(r=>r.json()).then(data=>{console.log(data)})
    }
  switch (props.Page) {
    case "MyProfilePage":

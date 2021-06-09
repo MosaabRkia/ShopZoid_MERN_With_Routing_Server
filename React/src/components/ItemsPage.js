@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { withRouter } from "react-router-dom";
 import EachListItem from "./EachListItem";
 import NavBar from "./NavBar";
+import '../cssFile/ItemPage.css'
 
 function ItemsPage(props) {
   const [catalogList, setCatalogList] = useState([]);
@@ -65,11 +66,13 @@ function ItemsPage(props) {
    }
 
   return (
-    <div>
+    <div className="fullDiv">
       <NavBar Page="ItemsPage" toLink="/MainPage" to="/MainPage" />
-<button className="btn btn-primary" onClick={SortItLowToHigh}>Sort By Price Low To High</button>
-<button className="btn btn-primary" onClick={SortItHighToLow}>Sort By Price High To Low</button>
-      <ul key="list">
+      <div id="buttonsSortDiv">
+<button id="buttonsSort" onClick={SortItLowToHigh}>Sort By Price Low To High</button>
+<button id="buttonsSort" onClick={SortItHighToLow}>Sort By Price High To Low</button>
+</div>
+      <ul id="ulListItems" key="list">
         {!!catalogList && catalogList.map((e) => {
           return (
             <EachListItem

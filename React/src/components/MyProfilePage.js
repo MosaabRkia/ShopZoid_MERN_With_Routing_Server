@@ -13,7 +13,7 @@ const [usrName, setUsrName] = useState({FirstName:"unkown",lastName:"unkown"})
     setUsrName(data)
    })
   },[])
-    return (<div>
+    return (<div style={{minWidth:"375px",maxWidth:"600px",margin:"auto"}}>
         <NavBar Page="MyProfilePage" toLink="/MainPage"/>
         <div className="card">
   <div className="card-body">

@@ -2,3 +2,8 @@
     flex-wrap: wrap;
     display: flex;
 }
+.fullDiv{
+    min-width: 375px;
+    max-width: 600px;
+    margin: auto;
+} 

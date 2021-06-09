@@ -16,7 +16,7 @@ function reloadPage(){
      })
 }
     return (
-        <div>
+        <div style={{minWidth:"375px",maxWidth:"600px",margin:"auto"}}>
             <NavBar toLink="/ProfilePage" Page="MyProfilePage"/>
             <div className="list-group">
             {

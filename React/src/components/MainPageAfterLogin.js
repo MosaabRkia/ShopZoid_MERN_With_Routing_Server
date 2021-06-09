@@ -15,7 +15,7 @@ class MainPageAfterLogin extends Component {
   }
   render() {
     return (
-      <div>
+      <div className="fullDiv">
         <NavBar Page="MainPageAfterLogin" />
         <Animated
           animationIn="fadeInUp"

@@ -35,7 +35,7 @@ fetch('/changeStatus',{
         }
     }
     return (
-        <li className="list-group-item">
+        <li className="list-group-item" >
           <p>{props.e._id}</p>
           <p>user Name : {userName}</p>
           <p>items quantity: {props.e.listItems.length}</p>

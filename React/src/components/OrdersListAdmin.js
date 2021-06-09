@@ -1,11 +1,21 @@
 import React, { useEffect, useState } from "react";
+import NavBar from "./NavBar";
 import OrdersListBar from "./OrdersListBar";
 
 export default function OrdersListAdmin() {
   const [ordersList, setOrdersList] = useState([]);
+  let [AdminOrNot,setAdminOrNot] = useState(false)
 
   useEffect(() => {
-    renderPage();
+    fetch('/AdminOrNot').then(r=>r.json()).then(data=>{
+      if(data.rank === "admin")
+          setAdminOrNot(true)
+          else
+          setAdminOrNot(false)
+    }).then(()=>{
+          renderPage();
+    })
+
   }, []);
   function renderPage(){
     fetch("/getAllOrders")
@@ -14,7 +24,10 @@ export default function OrdersListAdmin() {
       setOrdersList(data.orders);
     });
   }
-  return (
+  if(AdminOrNot === true){
+    return (
+    <div>
+    <NavBar Page="Admin"/>
     <ul className="list-group">
         <li className="list-group-item disabled">orders list</li>
       {!!ordersList &&
@@ -22,5 +35,15 @@ export default function OrdersListAdmin() {
            return <OrdersListBar renderPage={renderPage} e={e}/>
         })}
     </ul>
+    </div>
   );
+  }
+  else{
+    return(
+        <div>
+        your not admin !
+    </div> 
+    )
+   
+}
 }

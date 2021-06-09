@@ -39,9 +39,9 @@ fetch('/login',{
 
 
         return (
-            <div>
+            <div style={{maxWidth:"600px",minWidth:"375px",margin:"auto",width:"100%"}}>
              <Animated animationIn="fadeIn" animationInDuration={1400} animationOutDuration={1400} isVisible={true}>
-                <div>
+                <div id="images" style={{position:"relative"}}>
                <img id="imgLogin" alt="ImgLogin" src="https://airspeed.ph/wp-content/uploads/2020/06/The-Importance-of-Courier-Services-for-Online-Shopping-of-Essential-Items.jpg" /> 
                <img id="LOGOlog" alt="LOGOlog" src="https://i.ibb.co/CbBF9Hn/LOGO.png"/>
                 </div>

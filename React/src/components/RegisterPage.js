@@ -57,7 +57,7 @@ fetch('/Register',{
 }
 
 
-    return (<div>
+    return (<div style={{minWidth:"375px",maxWidth:"600px",margin:"auto"}}>
       <form onSubmit={onClickRegister} className="container RegisterPage">
         <div id="titlesRegisterP">
           <Link to="/">
