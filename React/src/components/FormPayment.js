@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link, useHistory, withRouter } from 'react-router-dom'
+import {  useHistory, withRouter } from 'react-router-dom'
 import '../cssFile/FormPayment.css'
 
 function FormPayment(props) {

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import '../cssFile/EachListItem.css'
 import { Link, withRouter } from 'react-router-dom'
 
@@ -12,7 +12,7 @@ function ViewItem(ItemId){
     body:JSON.stringify({ItemId})
   }).then(r=>r.json()).then((data)=>{
     console.log(data)
-    if(data.found == true){
+    if(data.found === true){
       props.history.push('/ItemPage')
     }
 else{
@@ -32,7 +32,7 @@ fetch('/add-CartList',{
   return (
     <li id="profileItem">
          <Link to={"/ItemPage"} onClick={()=>ViewItem(props.Item.id)}>
-      <img id="profileImg" src={props.Item.imgsrc} />
+      <img alt="imgSrcNull1" id="profileImg" src={props.Item.imgsrc} />
       <h4 id="profileTittle">{props.Item.title}</h4>
       <small id="profilePrice">{props.Item.price}$</small><br/>
       </Link>

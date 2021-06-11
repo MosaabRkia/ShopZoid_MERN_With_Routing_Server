@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Route, Switch, withRouter } from "react-router-dom";
 import LoginPage from "./components/LoginPage";
 import MainPageAfterLogin from "./components/MainPageAfterLogin";
@@ -12,7 +12,6 @@ import CartPage from "./components/CartPage";
 import ItemsPage from "./components/ItemsPage";
 import ItemPage from "./components/ItemPage";
 import ContactUs from "./components/ContactUs";
-import ItemShopArr from './components/Arrays/ItemShopArr'
 import AllArrayOfShopsCatalog from './components/Arrays/ItemsPagesArr'
 import '../src/cssFile/body.css'
 import PaymentPage from "./components/PaymentPage";
@@ -24,55 +23,53 @@ import AdminPage from "./components/AdminPage";
 import LoadingPage from "./components/LoadingPage";
 
 function App(props) {
-  const [allItems , setAllItems] = useState();
-  const [cartArray,setCartArray] = useState([]);
-  const [pathBack , setPathBack] = useState([]);
-  const [ArrOrders , setArrOrders] = useState([]);
-  const [LastOrder , setLastOrder] = useState();
-  const [counterForOrder , setCounterForOrder] = useState();
-  const [wishListArray , setWishListArray] = useState([]);
+  // const [allItems , setAllItems] = useState();
+  // const [ArrOrders , setArrOrders] = useState([]);
+  // const [LastOrder , setLastOrder] = useState();
+  // const [counterForOrder , setCounterForOrder] = useState();
+  // const [wishListArray , setWishListArray] = useState([]);
 
 
 
-function CreateNewItem(e){
-  let temp = allItems;
-  temp.push(e)
-  setAllItems(temp);
-}
+// function CreateNewItem(e){
+//   let temp = allItems;
+//   temp.push(e)
+//   setAllItems(temp);
+// }
 
 
-function ChangePrice(itemID,newPrice){
-    let temp=[];
-      allItems.map(item=>{
-          if(item.id  === itemID){
-              item.price=newPrice;
-      }
-  temp.push(item);
-  })
- setAllItems(temp); 
-}
+// function ChangePrice(itemID,newPrice){
+//     let temp=[];
+//       allItems.map(item=>{
+//           if(item.id  === itemID){
+//               item.price=newPrice;
+//       }
+//   temp.push(item);
+//   })
+//  setAllItems(temp); 
+// }
 
-  function RemoveFromWishList(e){
-    let newList = wishListArray.filter((item)=>{ return item.id !== e})
-    setWishListArray(newList);
-  }
-
-
-function AddOrderPlaced(e){
-  setLastOrder(e);
-  let temp = ArrOrders;
-  temp.push({Order:e});
-  setArrOrders(temp);
-  setCounterForOrder(counterForOrder+1);
-}
+  // function RemoveFromWishList(e){
+  //   let newList = wishListArray.filter((item)=>{ return item.id !== e})
+  //   setWishListArray(newList);
+  // }
 
 
-  function AddToWishList(e){
-      let theItem = allItems.filter((item)=>{ return item.id === e})
-      let temp = wishListArray;
-      temp.push(theItem[0])
-      setWishListArray(temp)
-  }
+// function AddOrderPlaced(e){
+//   setLastOrder(e);
+//   let temp = ArrOrders;
+//   temp.push({Order:e});
+//   setArrOrders(temp);
+//   setCounterForOrder(counterForOrder+1);
+// }
+
+
+  // function AddToWishList(e){
+  //     let theItem = allItems.filter((item)=>{ return item.id === e})
+  //     let temp = wishListArray;
+  //     temp.push(theItem[0])
+  //     setWishListArray(temp)
+  // }
 
   return (
     <div>
@@ -91,7 +88,7 @@ function AddOrderPlaced(e){
         </Route>
       
       <Route exact path="/PaymentPage">
-          <PaymentPage LastOrder={LastOrder}/>
+          <PaymentPage />
         </Route>
       
         <Route exact path="/">
@@ -142,11 +139,11 @@ function AddOrderPlaced(e){
         </Route>
 
         <Route exact path="/MyOrders">
-          <MyOrders  ArrOrders={ArrOrders}/>
+          <MyOrders  />
         </Route>
 
         <Route exact path="/WishList">
-          <WishList RemoveFromWishList={RemoveFromWishList}  wishListArray={wishListArray}/>
+          <WishList /*RemoveFromWishList={RemoveFromWishList}  wishListArray={wishListArray}*//>
         </Route>
 
         <Route exact path="/EditProfile">
@@ -158,11 +155,11 @@ function AddOrderPlaced(e){
 </Route>
 
         <Route exact path="/CartPage">
-          <CartPage  AddOrderPlaced={AddOrderPlaced} cartArray={cartArray}/>
+          <CartPage /* AddOrderPlaced={AddOrderPlaced} cartArray={cartArray}*//>
         </Route>         
 
         <Route exact path="/ItemPage">
-          <ItemPage   pathBack={pathBack} />
+          <ItemPage />
         </Route>
 
         <Route exact path="/ContactUs" >

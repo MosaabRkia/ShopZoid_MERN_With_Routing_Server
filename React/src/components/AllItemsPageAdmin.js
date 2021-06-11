@@ -1,4 +1,4 @@
-import React, { Component,useEffect, useState } from "react";
+import React, {useEffect, useState } from "react";
 import { withRouter } from "react-router-dom";
 import '../cssFile/AllItemsPageAdmin.css'
 import NavBar from "./NavBar";
@@ -17,7 +17,7 @@ function AllItemsPageAdmin(props) {
 let [allItemsShop,setAllItemsShop] = useState([])
 let [selectSearch,setSelectSearch] = useState("all")
 let [search,setSearch] = useState()
-let [searchOrNot,setSearchOrNot] = useState(false)
+// let [searchOrNot,setSearchOrNot] = useState(false)
 let [AdminOrNot,setAdminOrNot] = useState(false)
 
 useEffect(()=>{
@@ -29,9 +29,9 @@ useEffect(()=>{
   })
 },[])
 
-useState(()=>{
-  searchOrNot?searchList():RenderList()
-},[allItemsShop])
+// useState(()=>{
+//   searchOrNot?searchList():RenderList()
+// },[allItemsShop])
 
 
 function ChangePrice(id){
@@ -43,7 +43,7 @@ fetch('/changePriceItem',{
   },
   body:JSON.stringify({price:newPrice,id})
 }).then(r=>r.json()).then(data=>{
-  if(data.updated == true){
+  if(data.updated === true){
     alert("Updated Price")
     RenderList()
   }
@@ -101,7 +101,7 @@ function removeItem(itemId){
     body:JSON.stringify({id:itemId})
   }).then(r=>r.json()).then(data=>{
     console.log(data)
-    if(data.removed == true){
+    if(data.removed === true){
          alert("removed item")
          RenderList()
     }
@@ -139,13 +139,13 @@ function addItem(){
     headers:{"Content-Type":"application/json"},
     body:JSON.stringify({id:ID,type,imgsrc,title,price,description})
   }).then(r=>r.json()).then(data=>{
-    if(data.addedItem == true){
+    if(data.addedItem === true){
       setMessege("successfully added Item " + ID)
     }
-    else if(data.addedItem == false){
+    else if(data.addedItem === false){
       setMessege("item already added or id is used ! " + ID)
     }
-    else if(data.addedItem == null){
+    else if(data.addedItem === null){
       setMessege("account not Admin !!!")
     }
   })
@@ -192,7 +192,7 @@ else{
           
           {!!allItemsShop && allItemsShop.map((item) => {
             return (<li id="Line" className="list-group-item">
-                  <img id="imgLine" src={item.imgsrc} /> 
+                  <img alt="imgSrcNull1" id="imgLine" src={item.imgsrc} /> 
                   <br/> id:{item.id} <br/> {item.title}
                    <br/> Price : {item.price}$
           <br/> 

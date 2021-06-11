@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, {  useState } from 'react'
 import '../cssFile/LoginPage.css'
 import {Animated} from "react-animated-css";
 import { Link, withRouter } from 'react-router-dom';
@@ -7,7 +7,6 @@ function LoginPage(props) {
     const [message,setMessege] = useState("")
     const [loginEmail,setLoginEmail] = useState()
     const [loginPassword,setLoginPassword] = useState()
-    const [sucessLogin,setSucessLogin] = useState(false)
 
 
     function CheckLogin(e){
@@ -15,7 +14,7 @@ function LoginPage(props) {
 fetch('/login',{
   method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({loginEmail,loginPassword})
 }).then(r=>r.json()).then(data=>{
-  if(data.login == "admin"){
+  if(data.login === "admin"){
     props.history.push("/AdminPage");
   }
   else if(data.login === true){

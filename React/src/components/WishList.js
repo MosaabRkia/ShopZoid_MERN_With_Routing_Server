@@ -16,10 +16,10 @@ import NavBar from './NavBar'
             <NavBar toLink="/ProfilePage" Page="MyProfilePage"/>
             <ul className="list-group">
             {
-               arrayWishList.map(e=>{
+               arrayWishList && arrayWishList.map(e=>{
                  return(
                      <div>
-                          <EachLine   type="WishList" e={e} />
+                          <EachLine type="WishList" e={e} />
                      </div>
                     
                  )   

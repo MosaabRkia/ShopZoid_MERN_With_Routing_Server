@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, { useState} from "react";
 import { Link, withRouter } from "react-router-dom";
 import "../cssFile/RegisterPage.css";
 
@@ -10,7 +10,7 @@ function RegisterPage(props){
   const [password,setPassword] = useState(null);
   const [conPassword,setConPassword] = useState(null);
   const [messege,setMassage] = useState(null);
-  const [checkSucessfully,setCheckSucessfully] = useState(false);
+
 
   function onChangeHandleFName(e){
     setFirstName(e.target.value);

@@ -22,8 +22,9 @@ switch (props.Page) {
       <div id="allNavBar">
     <div className="navbar navbar-light ">
     <Link to={props.toLink}><img alt="backArrow" id="backArrow" src="https://cdn2.iconfinder.com/data/icons/arrows-and-universal-actions-icon-set/256/arrow_left_circle-256.png"/></Link>
-      <img id="Logo" alt="LOGOReg" src="https://i.ibb.co/CbBF9Hn/LOGO.png"/>
+      <img  id="Logo" alt="imgSrcNull12" src="https://i.ibb.co/CbBF9Hn/LOGO.png"/>
       <img id="ListShow" 
+      alt="imgSrcNull1"
       onClick={OpenBar} 
       src="https://cdn2.iconfinder.com/data/icons/e-commerce-line-10-1/1024/menu10-128.png" />
     </div>
@@ -31,14 +32,14 @@ switch (props.Page) {
     <NavBarList showOrHide={ShowHide} Page="MyProfilePage" />
     </div>
   );
-    break;
 
     case "Admin":
       return (
         <div id="allNavBar">
       <div className="navbar navbar-light ">
-        <img id="Logo" alt="LOGOReg" src="https://i.ibb.co/CbBF9Hn/LOGO.png"/>
+        <img id="Logo" alt="LOGOReg1" src="https://i.ibb.co/CbBF9Hn/LOGO.png"/>
         <img id="ListShow" 
+        alt="imgSrcNull2"
         className={ShowHide ? "Show" : "Hide"} 
         onClick={OpenBar} 
         src="https://cdn2.iconfinder.com/data/icons/e-commerce-line-10-1/1024/menu10-128.png" />
@@ -47,16 +48,16 @@ switch (props.Page) {
       <NavBarList showOrHide={ShowHide} Page={props.Page} />
       </div>
     );
-      break;
 
 
     case "ItemsPage":
       return (
         <div id="allNavBar">
       <div className="navbar navbar-light ">
-   <Link to={props.to}>  <img  alt="backArrow" id="backArrow" src="https://cdn2.iconfinder.com/data/icons/arrows-and-universal-actions-icon-set/256/arrow_left_circle-256.png"/></Link>
-        <img id="Logo" alt="LOGOReg" src="https://i.ibb.co/CbBF9Hn/LOGO.png"/>
+   <Link to={props.to}>  <img  alt="backArrow1" id="backArrow" src="https://cdn2.iconfinder.com/data/icons/arrows-and-universal-actions-icon-set/256/arrow_left_circle-256.png"/></Link>
+        <img id="Logo" alt="LOGOReg3" src="https://i.ibb.co/CbBF9Hn/LOGO.png"/>
         <img id="ListShow" 
+        alt="imgSrcNull4"
         className={ShowHide ? "Show" : "Hide"} 
         onClick={OpenBar} 
         src="https://cdn2.iconfinder.com/data/icons/e-commerce-line-10-1/1024/menu10-128.png" />
@@ -65,7 +66,6 @@ switch (props.Page) {
       <NavBarList showOrHide={ShowHide} Page="MyProfilePage" />
       </div>
     );
-      break;
 
 
     case "ItemPage":
@@ -75,6 +75,7 @@ switch (props.Page) {
      <img onClick={gobackfunction} alt="backArrow" id="backArrow" src="https://cdn2.iconfinder.com/data/icons/arrows-and-universal-actions-icon-set/256/arrow_left_circle-256.png"/>
         <img id="Logo" alt="LOGOReg" src="https://i.ibb.co/CbBF9Hn/LOGO.png"/>
         <img id="ListShow" 
+        alt="imgSrcNull1"
         className={ShowHide ? "Show" : "Hide"} 
         onClick={OpenBar} 
         src="https://cdn2.iconfinder.com/data/icons/e-commerce-line-10-1/1024/menu10-128.png" />
@@ -83,7 +84,6 @@ switch (props.Page) {
       <NavBarList showOrHide={ShowHide} Page="MyProfilePage" />
       </div>
     );
-      break;
 
     case "MainPageAfterLogin":
       return (
@@ -91,12 +91,14 @@ switch (props.Page) {
       <div  className="navbar navbar-light ">
         <Link to='/CartPage'>
         <img
-          id="cartButton"
+        alt="imgSrcNull1"
+        style={{width:"50px",height:"50px"}}
           src="https://cdn4.iconfinder.com/data/icons/basic-ui-2-line/32/shopping-cart-shop-drop-trolly-128.png"
         />
         </Link>
         <img id="Logo" alt="LOGOReg" src="https://i.ibb.co/CbBF9Hn/LOGO.png"/>
         <img id="ListShow" 
+        alt="imgSrcNull1"
         className={ShowHide ? "Show" : "Hide"} 
         onClick={OpenBar} 
         src="https://cdn2.iconfinder.com/data/icons/e-commerce-line-10-1/1024/menu10-128.png" />
@@ -105,15 +107,15 @@ switch (props.Page) {
       <NavBarList showOrHide={ShowHide} Page="MainPageAfterLogin"/>
       </div>
     );
-      break;
 
       case "CartPage":
         return (
           <div id="allNavBar">
         <div  className="navbar navbar-light">
           <Link to={props.toLink}><img alt="backArrow" id="backArrow" src="https://cdn2.iconfinder.com/data/icons/arrows-and-universal-actions-icon-set/256/arrow_left_circle-256.png"/></Link>      
-          <img id="Logo" alt="LOGOReg" src="https://i.ibb.co/CbBF9Hn/LOGO.png"/>
+          <img id="Logo" alt="LOGOReg56" src="https://i.ibb.co/CbBF9Hn/LOGO.png"/>
           <img id="ListShow" 
+          alt="imgSrcNull1"
           className={ShowHide ? "Show" : "Hide"} 
           onClick={OpenBar} 
           src="https://cdn2.iconfinder.com/data/icons/e-commerce-line-10-1/1024/menu10-128.png" />
@@ -122,15 +124,15 @@ switch (props.Page) {
         <NavBarList showOrHide={ShowHide} Page="MainPageAfterLogin"/>
         </div>
       );
-      break;
       
 
          case "PaymentPage":
         return (
           <div id="allNavBar">
         <div  className="navbar navbar-light">
-          <img id="Logo" alt="LOGOReg" src="https://i.ibb.co/CbBF9Hn/LOGO.png"/>
+          <img id="Logo" alt="LOGORega" src="https://i.ibb.co/CbBF9Hn/LOGO.png"/>
           <img id="ListShow" 
+          alt="imgSrcNull1"
           className={ShowHide ? "Show" : "Hide"} 
           onClick={OpenBar} 
           src="https://cdn2.iconfinder.com/data/icons/e-commerce-line-10-1/1024/menu10-128.png" />
@@ -139,18 +141,19 @@ switch (props.Page) {
         <NavBarList showOrHide={ShowHide} Page="MainPageAfterLogin"/>
         </div>
       );
-      break;
 
   default:
     return (
       <div id="allNavBar">
     <div  className="navbar navbar-light">
     <img
+    alt="imgSrcNull515"
         id="cartButton"
         src="https://cdn4.iconfinder.com/data/icons/basic-ui-2-line/32/shopping-cart-shop-drop-trolly-128.png"
       />
       <img id="Logo" alt="LOGOReg" src="https://i.ibb.co/CbBF9Hn/LOGO.png"/>
       <img id="ListShow" 
+      alt="imgSrcNull1"
       className={ShowHide ? "Show" : "Hide"} 
       onClick={OpenBar} 
       src="https://cdn2.iconfinder.com/data/icons/e-commerce-line-10-1/1024/menu10-128.png" />
@@ -159,7 +162,6 @@ switch (props.Page) {
     <NavBarList showOrHide={ShowHide} />
     </div>
   );
-    break;
 }
   
 }

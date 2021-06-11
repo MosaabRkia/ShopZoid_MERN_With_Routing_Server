@@ -7,8 +7,6 @@ import '../cssFile/ItemPage.css'
 function ItemsPage(props) {
   const [catalogList, setCatalogList] = useState([]);
   const [cartList, setCartList] = useState([]);
-  const [check, setCheck] = useState(false);
-  const [rendered,setRendered] = useState(false);
   useEffect(() => {
 
     let type = props.typeOfCatalog;
@@ -24,8 +22,8 @@ function ItemsPage(props) {
 
   function checkIfInCart(id){
     let x = false;
-  cartList.map(e =>{
-    if(e.id == id){
+  cartList.forEach(e =>{
+    if(e.id === id){
      x = true;
     }
   })

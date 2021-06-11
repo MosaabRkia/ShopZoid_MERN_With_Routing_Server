@@ -1,14 +1,10 @@
 import React, { useEffect, useState } from 'react'
-import { useHistory, withRouter } from 'react-router-dom'
+import {withRouter } from 'react-router-dom'
 import EachLine from './EachLine'
 import FormPayment from './FormPayment'
 import NavBar from './NavBar'
 
-function PaymentPage(props) {
-    // console.log(props.LastOrder)
-    // let [total,setTotal]= useState(0)
-    // const [cartArr,setCartArr] = useState(props.cartArray)
-    // let [total,setTotal] = useState(0); 
+function PaymentPage(props) { 
      let [list,setList] = useState(0); 
      let [total,setTotal] = useState(0); 
 
@@ -21,7 +17,6 @@ function PaymentPage(props) {
               <NavBar Page="CartPage" toLink="/CartPage" /> 
               {
                   !!list&&list.map(e=>{
-                      console.log(e)
                     return  <EachLine type="PaymentPage" e={e}/>
                   })
               }

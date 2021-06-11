@@ -5,7 +5,7 @@ import '../cssFile/GifImages.css'
 function GifImages(props) {
     return (
         <div id="gifImageDiv">
-           <img onClick={props.GoLink} id="imageGif" src={props.srcImg} />
+           <img alt="imgSrcNull1" onClick={props.GoLink} id="imageGif" src={props.srcImg} />
         </div>
     )
 }

@@ -20,7 +20,6 @@ import { Link, withRouter } from "react-router-dom";
       </div>
       </Animated>
     );
-     break;
 
      case "Admin":
       return (
@@ -32,7 +31,6 @@ import { Link, withRouter } from "react-router-dom";
         </div>
         </Animated>
       );
-       break;
 
      case "MainPageAfterLogin":
       return (
@@ -46,7 +44,6 @@ import { Link, withRouter } from "react-router-dom";
         </div>
         </Animated>
       );
-       break;
 
        case "ContactUs":
       return (
@@ -60,7 +57,6 @@ import { Link, withRouter } from "react-router-dom";
         </div>
         </Animated>
       );
-       break;
    default:
      break;
  }

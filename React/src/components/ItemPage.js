@@ -1,4 +1,4 @@
-import React,{useEffect, useState, useCallback  } from 'react'
+import React,{useEffect, useState  } from 'react'
 import NavBar from './NavBar'
 import '../cssFile/ItemPage.css'
 import { withRouter } from 'react-router-dom';
@@ -8,15 +8,13 @@ import WishListButton from './WishListButton';
     const [addedWish,setAddedWish] = useState(false);
     const [addedCart,setAddedCart] = useState(false);
     const [item,setItem] = useState({})
-    const [cartList, setCartList] = useState([]);
     const [wishList,setWishList]=useState([]);
     const [isLoading,setIsLoading]=useState(false);
-    const [dataToLoad,setDataToLoad] = useState(
-      {
+    const dataToLoad={
       imgsrc:"https://www.myanimalarm.com/Content/images/ajax-loader.gif",
       otherSrc:"https://www.paypesa.in/client-assets/img/spinner-loading.gif"
   }
-    )
+    
 
 useEffect(()=>{
     getCartList();
@@ -40,8 +38,8 @@ function getItem(){
 }
 function getCartList(){
   fetch('/get-CartList').then(r=>r.json()).then(data=>{
-    data.cartList.map(e =>{
-      if(e.id == item.id){
+    data.cartList.forEach(e =>{
+      if(e.id === item.id){
           setAddedCart(true);
       }
     })
@@ -51,8 +49,8 @@ function getCartList(){
 
   function checkIfInWish(){
     fetch("/get-wishList").then(r=>r.json()).then(data=>{setWishList(data.wishList)}).then(()=>{
-      !!wishList && wishList.map(e =>{
-        if(e.id == item.id){
+      !!wishList && wishList.forEach(e =>{
+        if(e.id === item.id){
           setAddedWish(true);
         }
       })
@@ -66,7 +64,6 @@ function getCartList(){
     }).then(()=>{
       // props.renderPage();
       getCartList();
-      console.log("renderTime")
     })
     }
 
@@ -87,7 +84,7 @@ return(
   isLoading? (
     <div id="ItemPageDiv">
          <NavBar  Page="ItemPage" />
-         <div id="photoDivView"><img id="itemPhoto" src={item.imgsrc} /></div>
+         <div id="photoDivView"><img alt="imgSrcNull1" id="itemPhoto" src={item.imgsrc} /></div>
     <h1 id="itemTittle">{item.title}</h1>
     <div id="linePriceAndWish" style ={{display:"flex",justifyContent: "space-between"}}>
     <h4 id="itemPrice">Price : {item.price}$</h4> 
@@ -101,9 +98,9 @@ return(
  (
   <div id="ItemPageDiv">
        <NavBar  Page="ItemPage" />
-       <div id="photoDivView"><img id="itemPhoto" src={dataToLoad.otherSrc} /></div>
+       <div id="photoDivView"><img alt="imgSrcNull1" id="itemPhoto" src={dataToLoad.otherSrc} /></div>
   <div id="LoadingItems">
-      <img src={dataToLoad.imgsrc} />
+      <img alt="imgSrcNull1" src={dataToLoad.imgsrc} />
   </div>
   </div>
 )

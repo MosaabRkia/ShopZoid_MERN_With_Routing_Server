@@ -4,9 +4,6 @@ import EachLine from "./EachLine";
 import NavBar from "./NavBar";
 
  function CartPage(props) {
-
-      const [cartArr,setCartArr] = useState(props.cartArray)
-     // let [total,setTotal] = useState(0); 
       let [list,setList] = useState([]); 
       let [total,setTotal] = useState(0); 
       let history = useHistory()
@@ -63,7 +60,7 @@ function PayAll(){
 
 
   return (
-    <div>
+    <div style={{minWidth:"375px",maxWidth:"600px",margin:"auto"}}>
       <NavBar Page="CartPage" toLink="/MainPage" />
       <ul key="List" className="list-group">
         {  

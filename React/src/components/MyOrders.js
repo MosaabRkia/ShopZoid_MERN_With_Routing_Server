@@ -4,9 +4,7 @@ import NavBar from './NavBar'
 import ShowListMyOrders from './ShowListMyOrders'
 
  function MyOrders() {
-const [ArrOrdersIds,setArrOrdersIds] = useState([]);
 const [ArrOrders,setArrOrders] = useState([]);
-const [total,setTotal] = useState(0);
 useEffect(()=>{
     reloadPage()
 },[])
@@ -17,11 +15,13 @@ function reloadPage(){
 }
     return (
         <div style={{minWidth:"375px",maxWidth:"600px",margin:"auto"}}>
+    
             <NavBar toLink="/ProfilePage" Page="MyProfilePage"/>
+            <h1 style={{color:'white', textAlign:"center",margin:"20px auto"}}>Orders List</h1>
             <div className="list-group">
             {
-               ArrOrders.map((e/*,index*/ )=>{
-                     return <ShowListMyOrders reloadPage={reloadPage} confirmed={e[0].closed} datePlaceOrder={e[0].datePlaceOrder} status={e[0].status} orderId={e[0]._id}/* index={index}*/  e={e[0].listItems}/>   
+               ArrOrders.map((e,index )=>{
+                     return <ShowListMyOrders reloadPage={reloadPage} confirmed={e[0].closed} datePlaceOrder={e[0].datePlaceOrder} status={e[0].status} orderId={e[0]._id} index={index}  e={e[0].listItems}/>   
                 })
             }
             </div>

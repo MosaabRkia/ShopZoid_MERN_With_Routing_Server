@@ -33,9 +33,9 @@ import '../cssFile/ImageSlider.css'
 
     return (
         <div id="slider">
-            <img id="imageThatSlider" src={AllImages[imagePlace]} />
-            <img onClick={changePlaceNext} alt="NextArrow" id="NextArrow" src="https://cdn2.iconfinder.com/data/icons/arrows-and-universal-actions-icon-set/256/arrow_left_circle-256.png"/>
-            <img onClick={changePlacePrev} alt="PrevArrow" id="PrevArrow" src="https://cdn2.iconfinder.com/data/icons/arrows-and-universal-actions-icon-set/256/arrow_left_circle-256.png"/>
+            <img alt="imgSrcNull1" id="imageThatSlider" src={AllImages[imagePlace]} />
+            <img  onClick={changePlaceNext} alt="NextArrow1" id="NextArrow" src="https://cdn2.iconfinder.com/data/icons/arrows-and-universal-actions-icon-set/256/arrow_left_circle-256.png"/>
+            <img  onClick={changePlacePrev} alt="PrevArrow2" id="PrevArrow" src="https://cdn2.iconfinder.com/data/icons/arrows-and-universal-actions-icon-set/256/arrow_left_circle-256.png"/>
         </div>
     )
 }

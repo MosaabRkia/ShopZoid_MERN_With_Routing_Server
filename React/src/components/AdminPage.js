@@ -6,8 +6,8 @@ export default function AdminPage() {
     let [AdminOrNot,setAdminOrNot] = useState(false)
     useEffect(()=>{
         fetch('/AdminOrNot').then(r=>r.json()).then(data=>{
-            console.log(data)
-          if(data.rank == "admin"){
+            // console.log(data)
+          if(data.rank === "admin"){
               setAdminOrNot(true)
           }
               else{
