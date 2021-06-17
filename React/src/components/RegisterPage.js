@@ -40,7 +40,7 @@ if(password !== conPassword)
         return;
 }
 
-fetch('/Register',{
+fetch('/user/Register',{
   method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({firstName,lastName,email,password,conPassword})
 }).then(r=>r.json()).then(data=>{
   if(data.registered === true){

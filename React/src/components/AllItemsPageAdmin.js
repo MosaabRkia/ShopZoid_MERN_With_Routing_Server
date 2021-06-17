@@ -21,12 +21,14 @@ let [search,setSearch] = useState()
 let [AdminOrNot,setAdminOrNot] = useState(false)
 
 useEffect(()=>{
-  fetch('/AdminOrNot').then(r=>r.json()).then(data=>{
-    if(data.rank === "admin")
+  fetch('/admin/AdminOrNot').then(r=>r.json()).then(data=>{
+    if(data.rank == "admin")
         setAdminOrNot(true)
         else
         setAdminOrNot(false)
+        console.log(AdminOrNot)
   })
+  RenderList()
 },[])
 
 // useState(()=>{
@@ -36,7 +38,7 @@ useEffect(()=>{
 
 function ChangePrice(id){
   console.log(newPrice)
-fetch('/changePriceItem',{
+fetch('/admin/changePriceItem',{
   method:"POST",
   headers:{
     "Content-Type":"application/json"
@@ -53,14 +55,16 @@ fetch('/changePriceItem',{
 })
 }
 function RenderList(){
-  fetch('/getAllItemsShop').then(r=>r.json()).then(data=>setAllItemsShop(data))
+  fetch('/admin/getAllItemsShop').then(r=>r.json()).then(data=>{
+    console.log(data)
+    setAllItemsShop(data)})
 }
 function searchList(){
   // setSearchOrNot(true)
   if(selectSearch === undefined){
     setSelectSearch("all")
   }
-  fetch('/SearchAdminPage',{
+  fetch('/admin/SearchAdminPage',{
     method:"POST",
     headers:{
       "Content-Type":"application/json"
@@ -93,7 +97,7 @@ function HandleChangeDescription(e){
   setDescription(e.target.value)
 }
 function removeItem(itemId){
-  fetch('/removeItem',{
+  fetch('/admin/removeItem',{
     method:"POST",
     headers:{
       "Content-Type":"application/json"
@@ -134,7 +138,7 @@ function addItem(){
     && this.state.price !== 0
     && this.state.description !== "")
     {
-  fetch('/addItem',{
+  fetch('/admin/addItem',{
     method:'POST',
     headers:{"Content-Type":"application/json"},
     body:JSON.stringify({id:ID,type,imgsrc,title,price,description})
@@ -156,13 +160,13 @@ else{
 }
    if(AdminOrNot === true){
     return (
-      <div>
+      <div style={{maxWidth:"600px",minWidth:"375px",margin:"auto"}}>
         <NavBar Page="Admin"/>
-          <div id="AddItems">
-             <h1 style={{color:"green"}}>Add Items</h1>
-             {messege}<br/>
-             <input type="number" name="ID" onChange={HandleChangeID} placeholder="ID"/>
-             <select onChange={HandleChangetype} name="search" id="search">
+          <div style={{textAlign:"center",margin:"auto"}} id="AddItems">
+             <h1 style={{color:"black"}}>Add Items</h1>
+             {messege}
+             <input style={{textAlign:"center",margin:"auto"}} className="form-control"  type="number" name="ID" onChange={HandleChangeID} placeholder="ID"/>
+             <select style={{textAlign:"center",margin:"10px auto"}} className="form-control" onChange={HandleChangetype} name="search" id="search">
              <option value={null} selected disabled>select type</option>
           <option value="Case">Case</option>
           <option value="Headphones">Headphones</option>
@@ -171,15 +175,17 @@ else{
           <option value="Keyboard">Keyboard</option>
           <option value="CardGraphic">CardGraphic</option>
 </select>
-             <input type="text" name="imgsrc" onChange={HandleChangeimgsrc} placeholder="imgsrc"/>
-             <input type="text" name="title" onChange={HandleChangetitle} placeholder="title"/>
-             <input type="number" name="price" onChange={HandleChangePrice} placeholder="price"/>
-             <input type="text" name="description" onChange={HandleChangeDescription} placeholder="description"/>
-             <input type="button" onClick={addItem} value="Add Item"/>
+             <input style={{textAlign:"center",margin:"10px auto"}} className="form-control" type="text" name="imgsrc" onChange={HandleChangeimgsrc} placeholder="imgsrc"/>
+             <input style={{textAlign:"center",margin:"10px auto"}} className="form-control" type="text" name="title" onChange={HandleChangetitle} placeholder="title"/>
+             <input style={{textAlign:"center",margin:"10px auto"}} className="form-control" type="number" name="price" onChange={HandleChangePrice} placeholder="price"/>
+             <input style={{textAlign:"center",margin:"10px auto"}} className="form-control" type="text" name="description" onChange={HandleChangeDescription} placeholder="description"/>
+             <input style={{backgroundColor:"black",color:"white",textAlign:"center",margin:"10px auto"}} className="form-control" type="button" onClick={addItem} value="Add Item"/>
           </div>
-          <input onChange={changeSearchWord} type="text"/>
-          <select onChange={changeSearchType} name="search" id="search">
-          <option value="all" selected>all</option>
+       
+          <h1 style={{color:"black",textAlign:"center",fontStyle:"bold"}}>Search</h1>
+          <input  className="form-control" placeholder="Search" style={{border:"4px solid black",margin: "0px auto 5px auto"}} onChange={changeSearchWord} type="text"/>
+          <select  className="form-control" style={{border:"4px solid black",margin: "0px auto 5px auto",display: "block",textAlign:"center"}} onChange={changeSearchType} name="search" id="search">
+          <option value="all" selected>select Type</option>
           <option value="Case">Case</option>
           <option value="Headphones">Headphones</option>
           <option value="Mouse">Mouse</option>
@@ -187,7 +193,9 @@ else{
           <option value="Keyboard">Keyboard</option>
           <option value="CardGraphic">CardGraphic</option>
 </select>
-          <button onClick={searchIt} className="btn btn-danger">search</button>
+<div style={{textAlign:"center"}}>
+          <button style={{border:"1px solid black",color:"white",margin:"2px"}} onClick={searchIt} className="btn">search</button>
+       </div>
         <ul className="list-group">
           
           {!!allItemsShop && allItemsShop.map((item) => {
@@ -198,9 +206,9 @@ else{
           <br/> 
 
           <div class="input-group mb-3">
-  <input type="text" onChange={HandleChangePriceItem} class="form-control" placeholder="New Price" aria-label="Recipient's username" aria-describedby="basic-addon2"/>
+  <input style={{margin:"auto"}} type="text" onChange={HandleChangePriceItem} class="form-control" placeholder="New Price" aria-label="Recipient's username" aria-describedby="basic-addon2"/>
   <div class="input-group-append">
-    <button class="btn btn-outline-secondary" onClick={()=>ChangePrice(item.id)} type="button">Change Price</button>
+    <button  class="btn btn-outline-secondary" onClick={()=>ChangePrice(item.id)} type="button">Change Price</button>
   </div></div>
 
             <br/>  <button className="btn btn-danger" onClick={()=>removeItem(item.id)}>remove Item</button>

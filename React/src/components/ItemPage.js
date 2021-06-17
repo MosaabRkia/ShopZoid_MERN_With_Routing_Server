@@ -1,8 +1,9 @@
 import React,{useEffect, useState  } from 'react'
 import NavBar from './NavBar'
 import '../cssFile/ItemPage.css'
-import { withRouter } from 'react-router-dom';
+import { withRouter ,useParams } from 'react-router-dom';
 import WishListButton from './WishListButton';
+
 
  function ItemPage(props) {
     const [addedWish,setAddedWish] = useState(false);
@@ -10,11 +11,11 @@ import WishListButton from './WishListButton';
     const [item,setItem] = useState({})
     const [wishList,setWishList]=useState([]);
     const [isLoading,setIsLoading]=useState(false);
+    const { id } = useParams()
     const dataToLoad={
       imgsrc:"https://www.myanimalarm.com/Content/images/ajax-loader.gif",
       otherSrc:"https://www.paypesa.in/client-assets/img/spinner-loading.gif"
   }
-    
 
 useEffect(()=>{
     getCartList();
@@ -23,21 +24,42 @@ useEffect(()=>{
 
 
 useEffect(()=>{
-  getItem();
+  getTheItem();
     getCartList();
     checkIfInWish();
 },[])
 
-// lower the ram ask any one
-function getItem(){
+function getTheItem(){
   setIsLoading(false)
-  fetch('/getItem').then(r=>r.json()).then(data=>{setItem(data.item)})
-  .then(()=>{setTimeout(()=>{
+  fetch('/item/getItem',{
+    method:"POST",
+    headers:{
+      "content-type":"application/json"
+    },
+    body:JSON.stringify({id})
+  }).then(r=>r.json()).then(data=>{setItem(data.item)}).then(()=>{
+    setTimeout(()=>{
       setIsLoading(true)
-    },2500)})
+    },3000)
+  })
 }
+
+// lower the ram ask any one
+// function getItem(){
+//   setIsLoading(false)
+//   // console.log("load to false")
+//   fetch(`/getItem`).then(r=>r.json()).then(async (data)=>{
+//       // console.log(data.item.id)
+//      await setItem(data.item)
+//   })
+//   .then(()=>{setTimeout(()=>{
+//       setIsLoading(true)
+//       // console.log("load to true")
+//     },5000)})
+// }
+
 function getCartList(){
-  fetch('/get-CartList').then(r=>r.json()).then(data=>{
+  fetch('/user/cartList').then(r=>r.json()).then(data=>{
     data.cartList.forEach(e =>{
       if(e.id === item.id){
           setAddedCart(true);
@@ -48,7 +70,7 @@ function getCartList(){
 
 
   function checkIfInWish(){
-    fetch("/get-wishList").then(r=>r.json()).then(data=>{setWishList(data.wishList)}).then(()=>{
+    fetch("/user/getWishList").then(r=>r.json()).then(data=>{setWishList(data.wishList)}).then(()=>{
       !!wishList && wishList.forEach(e =>{
         if(e.id === item.id){
           setAddedWish(true);
@@ -59,10 +81,9 @@ function getCartList(){
 
   function AddToCart(){
     let itemId = item.id;
-    fetch('/add-CartList',{
+    fetch('/user/addCartList',{
       method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({itemId})
     }).then(()=>{
-      // props.renderPage();
       getCartList();
     })
     }
@@ -70,7 +91,7 @@ function getCartList(){
 
        function AddToWishList(){
          let itemId = item.id;
-         fetch('/add-wishList',{
+         fetch('/user/addWishList',{
            method:"POST",
            headers:{
              "Content-Type":"application/JSON"

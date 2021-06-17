@@ -9,12 +9,12 @@ import { withRouter } from 'react-router-dom'
 const [usrName, setUsrName] = useState({FirstName:"unkown",lastName:"unkown"})
 
   useEffect(()=>{
-   fetch('/userName').then(r=>r.json()).then(data=>{
+   fetch('/user/userName').then(r=>r.json()).then(data=>{
     setUsrName(data)
    })
   },[])
     return (<div style={{minWidth:"375px",maxWidth:"600px",margin:"auto"}}>
-        <NavBar Page="MyProfilePage" toLink="/MainPage"/>
+        <NavBar Page="MyProfilePage" toLink="/Home"/>
         <div className="card">
   <div className="card-body">
   <h1 style={{fontWeight:"bold"}}>  {usrName.FirstName} {usrName.LastName} </h1>

@@ -1,23 +1,19 @@
 import React, { useState, useEffect } from "react";
-import { withRouter } from "react-router-dom";
+import { withRouter ,useParams } from "react-router-dom";
 import EachListItem from "./EachListItem";
 import NavBar from "./NavBar";
 import '../cssFile/ItemPage.css'
 
 function ItemsPage(props) {
+  let {typeOfCatalog} = useParams();
+  console.log(typeOfCatalog)
+
   const [catalogList, setCatalogList] = useState([]);
   const [cartList, setCartList] = useState([]);
   useEffect(() => {
-
-    let type = props.typeOfCatalog;
-      fetch('/getAllItems',{
-        method:"POST",
-        headers:{
-          "Content-Type": "application/json"
-        },
-        body:JSON.stringify({type})
-      }).then(r=>r.json()).then(data => setCatalogList(data))
-    fetch('/get-CartList').then(r=>r.json()).then(data=>setCartList(data.cartList))
+    renderPage();
+    // let type = props.typeOfCatalog;
+     
   }, []);
 
   function checkIfInCart(id){
@@ -35,16 +31,24 @@ function ItemsPage(props) {
     props.SetItem(e,path);
   }
   function renderPage() {
-    let type = props.typeOfCatalog;
-    fetch('/getAllItems',{
+    fetch('/item/getAllItems',{
       method:"POST",
       headers:{
         "Content-Type": "application/json"
       },
-      body:JSON.stringify({type})
+      body:JSON.stringify({type:typeOfCatalog})
     }).then(r=>r.json()).then(data => setCatalogList(data))
+  fetch('/user/cartList').then(r=>r.json()).then(data=>setCartList(data.cartList))
+    // let type = props.typeOfCatalog;
+    // fetch('/item/getAllItems',{
+    //   method:"POST",
+    //   headers:{
+    //     "Content-Type": "application/json"
+    //   },
+    //   body:JSON.stringify({type})
+    // }).then(r=>r.json()).then(data => setCatalogList(data))
 
-    fetch('/get-CartList').then(r=>r.json()).then(data=>setCartList(data.cartList))  
+    // fetch('/user/cartList').then(r=>r.json()).then(data=>setCartList(data.cartList))  
   }
   
   function SortItLowToHigh(){
@@ -65,7 +69,7 @@ function ItemsPage(props) {
 
   return (
     <div className="fullDiv">
-      <NavBar Page="ItemsPage" toLink="/MainPage" to="/MainPage" />
+      <NavBar Page="ItemsPage" toLink="/Home" to="/Home" />
       <div id="buttonsSortDiv">
 <button id="buttonsSort" onClick={SortItLowToHigh}>Sort By Price Low To High</button>
 <button id="buttonsSort" onClick={SortItHighToLow}>Sort By Price High To Low</button>
@@ -75,6 +79,7 @@ function ItemsPage(props) {
           return (
             <EachListItem
               setItemToMain={setItemToMain}
+              itemFullArray={e}
               renderPage={renderPage}
               Added={checkIfInCart(e.id)}
               Item={e}

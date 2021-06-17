@@ -26,7 +26,7 @@ class MainPageAfterLogin extends Component {
           {
   AllArrayOfShopsCatalog.map((e,index)=>{
   return (<div id="catalogPath">  <CatalogItem 
-    ToLink={`/ItemsPage-${index}`}
+    ToLink={`/Catalog/${e.typeOfCatalog}`}
     imgSrc={e.imgSrc}
     catalogName={e.typeOfCatalog}
     index={index}

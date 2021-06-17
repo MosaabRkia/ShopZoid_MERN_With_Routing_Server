@@ -6,13 +6,13 @@ import "../cssFile/EachLine.css";
   const [addedCart,setAddedCart] = useState(false);
 
   useEffect(() => {
-    fetch('/get-CartList').then(r=>r.json()).then(data=>setCartList(data.cartList))
+    fetch('/user/CartList').then(r=>r.json()).then(data=>setCartList(data.cartList))
     renderPageAddToCart();
   },[cartList])
 
 //   function AddToCartWishList(){
 //     let itemId = props.e.id;
-//     fetch('/add-CartList',{
+//     fetch('/user/addCartList',{
 //       method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({itemId})
 //     }).then(()=>{
 //       console.log("worked all")
@@ -36,7 +36,7 @@ async function changeQuantity(e){
 
 
 function RemoveFromWishList(){
-  fetch('/remove-wishList',{method:"POST",headers:{"Content-Type":"application/JSON"},body:JSON.stringify({id:props.e.id})}).then(r=>r.json()).then(data=>console.log(data))
+  fetch('/user/removeWishList',{method:"POST",headers:{"Content-Type":"application/JSON"},body:JSON.stringify({id:props.e.id})}).then(r=>r.json()).then(data=>console.log(data))
 }
 
 

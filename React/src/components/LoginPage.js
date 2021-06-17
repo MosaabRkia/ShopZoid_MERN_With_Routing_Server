@@ -11,14 +11,14 @@ function LoginPage(props) {
 
     function CheckLogin(e){
         e.preventDefault();
-fetch('/login',{
+fetch('/user/login',{
   method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({loginEmail,loginPassword})
 }).then(r=>r.json()).then(data=>{
   if(data.login === "admin"){
     props.history.push("/AdminPage");
   }
   else if(data.login === true){
-    props.history.push("/MainPage");
+    props.history.push("/Home");
   }
   else{
     setMessege("The email or password you’ve entered is incorrect")

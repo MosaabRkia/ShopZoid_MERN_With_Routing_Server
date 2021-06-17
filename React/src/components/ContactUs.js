@@ -27,7 +27,7 @@ class ContactUs extends Component {
   render() {
     return (
       <div style={{maxWidth:"600px",minWidth:"375px",margin:"auto"}}>
-        <NavBar Page="MyProfilePage" toLink="/MainPage" />
+        <NavBar Page="MyProfilePage" toLink="/Home" />
         <div id="policityAndTerms">
           <h3 id="tittle">policy and terms</h3>
           <p id="parag">

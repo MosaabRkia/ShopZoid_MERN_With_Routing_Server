@@ -5,7 +5,7 @@ function PageSucessfullySentContact() {
     return (
         <div style={{minWidth:"375px",maxWidth:"600px",margin:"auto"}}>
             <h1>Thank you for Contacting us</h1>
-            <Link to="/MainPage">Go To Main Page..</Link>
+            <Link to="/Home">Go To Main Page..</Link>
         </div>
     )
 }

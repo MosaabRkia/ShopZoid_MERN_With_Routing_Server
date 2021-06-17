@@ -4,9 +4,9 @@ import NavBar from './NavBar'
 
 export default function AdminPage() {
     let [AdminOrNot,setAdminOrNot] = useState(false)
+    
     useEffect(()=>{
-        fetch('/AdminOrNot').then(r=>r.json()).then(data=>{
-            // console.log(data)
+        fetch('/admin/AdminOrNot').then(r=>r.json()).then(data=>{
           if(data.rank === "admin"){
               setAdminOrNot(true)
           }

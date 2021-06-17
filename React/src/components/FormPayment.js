@@ -10,7 +10,7 @@ function FormPayment(props) {
     e.preventDefault();
     // console.log(e)
     // let newVisa = {numberVisa:e.input#ccnum}
-fetch('/createNewOrder').then(r=>r.json()).then(data=>{
+fetch('/user/createNewOrder').then(r=>r.json()).then(data=>{
 if(data.orderPlaced === true){
   history.push('/SucessfullyPageOrdered')
 }

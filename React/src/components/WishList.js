@@ -7,7 +7,7 @@ import NavBar from './NavBar'
     const [arrayWishList,setArrayWishList] = useState(props.wishListArray) 
 
     useEffect(()=>{
-        fetch('/get-wishList').then(r=>r.json()).then(data=>setArrayWishList(data.wishList))
+        fetch('/user/getWishList').then(r=>r.json()).then(data=>setArrayWishList(data.wishList))
     },[arrayWishList])
 
 

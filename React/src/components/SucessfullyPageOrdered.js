@@ -7,7 +7,7 @@ function SucessfullyPageOrdered() {
     <div style={{minWidth:"375px",maxWidth:"600px",margin:"auto"}} id="AllDiv">
       <CircleButton
         word="Main Page"
-        toLink="/MainPage"
+        toLink="/Home"
         fontColor="purple"
         backgroundColor="white"
       />
