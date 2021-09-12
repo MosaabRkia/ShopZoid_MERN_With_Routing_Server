@@ -2,7 +2,7 @@
   "name": "mosaabrkia",
   "version": "0.1.0",
   "private": true,
-  "proxy":"http://localhost:3001/",
+  "proxy": "http://localhost:3001/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.3",
@@ -10,7 +10,9 @@
     "@types/react-router-dom": "^5.1.7",
     "cookie-parser": "^1.4.5",
     "cookies": "^0.8.0",
+    "node-fetch": "^2.6.1",
     "react": "^17.0.1",
+    "react-animated-css": "^1.2.1",
     "react-dom": "^17.0.1",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.1",
