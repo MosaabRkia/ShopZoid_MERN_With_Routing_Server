@@ -47,7 +47,7 @@ fetch('/user/login',{
                 <form onSubmit={CheckLogin}>
                 <div id="DivLoginInputs">
                 <p id="typeForInput">Email Adress</p>
-                <input name="loginEmail" onChange={onChangeHandleEmail} className="loginInput" id="loginInputEmail" type="email" placeholder="Enter Email Adress" required/>
+                <input name="loginEmail" onChange={onChangeHandleEmail} className="loginInput" id="loginInputEmail" type="email" placeholder="Enter Email Address" required/>
                <p id="typeForInput" >Password</p>
                <input name="loginPassword" onChange={onChangeHandlePassword} className="loginInput" id="loginInputPassword" type="password" placeholder="Enter Password" required/>
                 </div>

@@ -70,6 +70,7 @@ function getCartList(){
 
 
   function checkIfInWish(){
+    console.log("checkInWish")
     fetch("/user/getWishList").then(r=>r.json()).then(data=>{setWishList(data.wishList)}).then(()=>{
       !!wishList && wishList.forEach(e =>{
         if(e.id === item.id){
@@ -90,6 +91,9 @@ function getCartList(){
 
 
        function AddToWishList(){
+         if(addedWish)
+           return;
+         
          let itemId = item.id;
          fetch('/user/addWishList',{
            method:"POST",
@@ -98,7 +102,9 @@ function getCartList(){
            },
            body:JSON.stringify({itemId})
          }).then(r=>r.json()).then(data=>{
+           console.log("added")
           checkIfInWish();
+          setAddedWish(true);
          })
        }
 return(
@@ -111,7 +117,9 @@ return(
     <h4 id="itemPrice">Price : {item.price}$</h4> 
     <div  onClick={AddToWishList}>{<WishListButton added={addedWish}/>}</div>
     </div>
-    {addedCart?<button id="buttonAddedToCart" disabled>Added to cart !</button>:<button id="buttonAddToCart"  onClick={AddToCart}>Add To Cart</button>}
+    <div style={{margin:"5px",display:'flex'}}>
+    {addedCart?<button id="buttonAddedToCart" style={{margin:"auto"}} disabled>Added to cart !</button>:<button id="buttonAddToCart" style={{margin:"auto"}}  onClick={AddToCart}>Add To Cart</button>}
+    </div>
    <h3 id="descBorder">Description :</h3>
     <h4 id="itemDescription">{item.descrption}</h4> 
     </div>

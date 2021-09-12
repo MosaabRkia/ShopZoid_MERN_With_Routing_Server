@@ -8,22 +8,24 @@ import "../cssFile/EachLine.css";
   useEffect(() => {
     fetch('/user/CartList').then(r=>r.json()).then(data=>setCartList(data.cartList))
     renderPageAddToCart();
-  },[cartList])
+  },[])
 
-//   function AddToCartWishList(){
-//     let itemId = props.e.id;
-//     fetch('/user/addCartList',{
-//       method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({itemId})
-//     }).then(()=>{
-//       console.log("worked all")
-//     })
-// }
+  function AddToCartWishList(){
+    let itemId = props.e.id;
+    fetch('/user/addCartList',{
+      method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({itemId})
+    }).then(()=>{
+      renderPageAddToCart();
+    })
+}
 
 function RemoveOne(){
   props.RemoveOne(props.e.id)
 }
 
 function renderPageAddToCart(){
+  console.log("render")
+  fetch('/user/CartList').then(r=>r.json()).then(data=>setCartList(data.cartList))
   cartList.forEach(e =>{
     if(e.id === props.e.id){
         setAddedCart(true);
@@ -38,6 +40,7 @@ async function changeQuantity(e){
 function RemoveFromWishList(){
   fetch('/user/removeWishList',{method:"POST",headers:{"Content-Type":"application/JSON"},body:JSON.stringify({id:props.e.id})}).then(r=>r.json()).then(data=>console.log(data))
 }
+
 
 
   if(props.type === "PaymentPage"){
@@ -63,7 +66,7 @@ function RemoveFromWishList(){
         <p id="titleOfWish">{props.e.title}</p>
         <p id="priceWish">US {props.e.price}$</p>
         <button onClick={RemoveFromWishList} id="deleteButton">🗑</button>
-        <button disabled={addedCart?true:false} style={{backgroundColor:addedCart?"gray":"black"}} onClick={RemoveFromWishList} id="cartButton">🛒</button>
+        <button disabled={addedCart?true:false} style={{backgroundColor:addedCart?"gray":"black"}} onClick={AddToCartWishList} id="cartButton">🛒</button>
       </div>
     </li>
   );

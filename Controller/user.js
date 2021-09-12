@@ -186,6 +186,7 @@ exports.gettotalCart = async (req, res) => {
   exports.addCartList = async (req, res) => {
     try {
         let idOfItem = req.body;
+        console.log(idOfItem.itemId)
     let idSearch = req.cookies.rol;
     let findItem = await Item.findOne({ id: idOfItem.itemId });
     let findUser = await User.findOne({ id: idSearch });

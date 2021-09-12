@@ -7,10 +7,10 @@ import '../cssFile/ImageSlider.css'
     const [imagePlace,setImagePlace] = useState(0); 
 
     const AllImages =[
-        "https://www.geekysaur.com/wp-content/uploads/Razer-Sale.png",
-        "https://www.geeky-gadgets.com/wp-content/uploads/2015/01/Razer-Sale.jpg",
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7XvSCwA90UhR6qw7_nJRpOB2sLrTg1b-SAw&usqp=CAU",
-        "https://press.razer.com/wp-content/uploads/2019/04/Blade-15-1024x540.png"
+        "https://fdn.gsmarena.com/imgroot/news/20/09/rtx-3000/-1220x526/gsmarena_000.jpg",
+        "https://logamy.com/wp-content/uploads/2020/09/NVIDIA-GeForce-RTX.jpg",
+        "https://arabhardware.net/wp-content/uploads/2020/07/NVIDIA-RTX-3080-3D-Feature-2-1.jpg",
+        "https://www.servethehome.com/wp-content/uploads/2020/11/NVIDIA-GeForce-RTX-3090-Heatsink-Side-4.jpg"
     ];
     
     //  --->

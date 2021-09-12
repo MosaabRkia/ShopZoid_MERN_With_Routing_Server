@@ -10,6 +10,8 @@ function ItemsPage(props) {
 
   const [catalogList, setCatalogList] = useState([]);
   const [cartList, setCartList] = useState([]);
+  const [sortBy,setSortBy] = useState("regular");
+
   useEffect(() => {
     renderPage();
     // let type = props.typeOfCatalog;
@@ -18,7 +20,7 @@ function ItemsPage(props) {
 
   function checkIfInCart(id){
     let x = false;
-  cartList.forEach(e =>{
+    cartList && cartList.forEach(e =>{
     if(e.id === id){
      x = true;
     }
@@ -38,7 +40,11 @@ function ItemsPage(props) {
       },
       body:JSON.stringify({type:typeOfCatalog})
     }).then(r=>r.json()).then(data => setCatalogList(data))
-  fetch('/user/cartList').then(r=>r.json()).then(data=>setCartList(data.cartList))
+  fetch('/user/cartList').then(r=>r.json()).then(data=>{
+    setCartList(data.cartList)
+  }
+ 
+    )
     // let type = props.typeOfCatalog;
     // fetch('/item/getAllItems',{
     //   method:"POST",
@@ -52,19 +58,17 @@ function ItemsPage(props) {
   }
   
   function SortItLowToHigh(){
-   catalogList.sort( (a, b)=> {
-      return a.price - b.price;
-    });
-    setCatalogList(catalogList)
-    console.log(catalogList)
+    setSortBy("LtH");
+   return catalogList.sort( (a, b)=>a.price - b.price);
   }
 
   function SortItHighToLow(){
-    catalogList.sort( (a, b)=> {
-       return a.price - b.price;
-     });
-     setCatalogList(catalogList)
-     console.log(catalogList)
+    setSortBy("HtL");
+    return catalogList.sort( (a, b)=>b.price - a.price);
+   }
+   function resetSort(){
+    setSortBy("regular");
+    renderPage();
    }
 
   return (
@@ -72,6 +76,7 @@ function ItemsPage(props) {
       <NavBar Page="ItemsPage" toLink="/Home" to="/Home" />
       <div id="buttonsSortDiv">
 <button id="buttonsSort" onClick={SortItLowToHigh}>Sort By Price Low To High</button>
+<button id="buttonsSort" onClick={resetSort}>Reset Sorter</button>
 <button id="buttonsSort" onClick={SortItHighToLow}>Sort By Price High To Low</button>
 </div>
       <ul id="ulListItems" key="list">

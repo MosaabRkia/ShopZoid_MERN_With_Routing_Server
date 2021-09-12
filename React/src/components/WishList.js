@@ -11,6 +11,7 @@ import NavBar from './NavBar'
     },[arrayWishList])
 
 
+
     return (
         <div style={{minWidth:"375px",maxWidth:"600px",margin:"auto"}}>
             <NavBar toLink="/ProfilePage" Page="MyProfilePage"/>
