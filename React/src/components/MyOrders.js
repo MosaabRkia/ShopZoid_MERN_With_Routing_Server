@@ -9,7 +9,7 @@ useEffect(()=>{
     reloadPage()
 },[])
 function reloadPage(){
-    fetch('/getPlacedOrders').then(r=>r.json()).then(data=>{
+    fetch('/order/getPlacedOrders').then(r=>r.json()).then(data=>{
         setArrOrders(data.List)
      })
 }

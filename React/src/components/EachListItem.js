@@ -1,29 +1,30 @@
-import React from "react";
+import React ,{useState} from "react";
 import '../cssFile/EachListItem.css'
-import { Link, withRouter } from 'react-router-dom'
+import { Link, withRouter ,useHistory } from 'react-router-dom'
 
  function EachListItem(props) {
-
-
+let history = useHistory(); 
+// let [arr,setarr] = useState(props.itemFullArray);
 function ViewItem(ItemId){
-  fetch('/LoadPageItem',{
-    method: 'POST',
-    headers: {"Content-Type":"application/json"},
-    body:JSON.stringify({ItemId})
-  }).then(r=>r.json()).then((data)=>{
-    console.log(data)
-    if(data.found === true){
-      props.history.push('/ItemPage')
-    }
-else{
-  alert("Unknown Item")
-}
-  })
+  console.log("joined")
+  // fetch('/LoadPageItem',{
+  //   method: 'POST',
+  //   headers: {"Content-Type":"application/json"},
+  //   body:JSON.stringify({ItemId})
+  // }).then(r=>r.json()).then((data)=>{
+  //   if(data.found === true){
+      history.push(`/ItemPage/${ItemId}`);
+
+//     }
+// else{
+//   alert("Unknown Item")
+// }
+  // })
 }
 
 function AddToCart(){
 let itemId = props.Item.id;
-fetch('/add-CartList',{
+fetch('/user/addCartList',{
   method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({itemId})
 }).then(()=>{
   props.renderPage();
@@ -31,7 +32,7 @@ fetch('/add-CartList',{
 }
   return (
     <li id="profileItem">
-         <Link to={"/ItemPage"} onClick={()=>ViewItem(props.Item.id)}>
+         <Link onClick={()=>ViewItem(props.Item.id)}>
       <img alt="imgSrcNull1" id="profileImg" src={props.Item.imgsrc} />
       <h4 id="profileTittle">{props.Item.title}</h4>
       <small id="profilePrice">{props.Item.price}$</small><br/>

@@ -7,7 +7,7 @@ export default function OrdersListAdmin() {
   let [AdminOrNot,setAdminOrNot] = useState(false)
 
   useEffect(() => {
-    fetch('/AdminOrNot').then(r=>r.json()).then(data=>{
+    fetch('/admin/AdminOrNot').then(r=>r.json()).then(data=>{
       if(data.rank === "admin")
           setAdminOrNot(true)
           else
@@ -15,10 +15,10 @@ export default function OrdersListAdmin() {
     }).then(()=>{
           renderPage();
     })
-
   }, []);
+  
   function renderPage(){
-    fetch("/getAllOrders")
+    fetch("/admin/getAllOrders")
     .then((r) => r.json())
     .then((data) => {
       setOrdersList(data.orders);

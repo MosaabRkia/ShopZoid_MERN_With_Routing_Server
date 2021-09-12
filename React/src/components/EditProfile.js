@@ -41,12 +41,13 @@ import { withRouter } from "react-router-dom";
 
   function ChangeEmail(e){
     e.preventDefault();
-
-    fetch('/changeEmail',{
+console.log(oldEmail,newEmail)
+    fetch('/user/changeEmail',{
       method:"POST",
       headers:{"Content-Type":"application/json"},
 body:JSON.stringify({oldEmail,newEmail})
     }).then(r=>r.json()).then(data=>{
+      console.log(data.changed)
       setChanged(data.changed)
     })
     if(changed){
@@ -60,7 +61,7 @@ body:JSON.stringify({oldEmail,newEmail})
 
   function ChangePassword(e){
     e.preventDefault();
-    fetch('/changePassword',{
+    fetch('/user/changePassword',{
       method:"POST",
       headers:{"Content-Type":"application/json"},
 body:JSON.stringify({oldPassword,newPassword})

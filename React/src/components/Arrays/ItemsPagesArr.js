@@ -1,24 +1,24 @@
 const AllArrayOfShopsCatalog =[
    { 
         typeOfCatalog:"CardGraphic",
-        imgSrc:"https://wallpapercave.com/wp/wp2197114.jpg"
+        imgSrc:"https://assets2.rockpapershotgun.com/nvidia-rtx-3090-gpu.jpg/BROK/resize/1920x1920%3E/format/jpg/quality/80/nvidia-rtx-3090-gpu.jpg"
 
 }, {
         typeOfCatalog:"Keyboard",
-        imgSrc:"https://cdn.mos.cms.futurecdn.net/2XAcdDGjcdFrwJ7VxfY6i3.jpg"
+        imgSrc:"https://cdn.mos.cms.futurecdn.net/3hjSVo3Qqfq3PcfNQ78nL9.jpg"
 
 }, {
         typeOfCatalog:"Laptop",
-        imgSrc:"https://images.financialexpress.com/2020/08/redmi-g-gaming-laptop-620x413.jpg"
+        imgSrc:"https://images2.alphacoders.com/527/527966.jpg"
 }, {
         typeOfCatalog:"Mouse",
-        imgSrc:"https://www.teahub.io/photos/full/339-3399804_best-gaming-mouse.jpg"
+        imgSrc:"https://videogamesuncovered.com/wp-content/uploads/2016/02/razer-mamba-te.jpg"
 }, {
         typeOfCatalog:"Headphones",
-        imgSrc:"https://ae01.alicdn.com/kf/HTB1dayIKpXXXXbsXFXXq6xXFXXXz/Hot-Sale-SteelSeries-SIBERIA-V1-Full-Size-Gaming-Headset-Wire-Control-Cloth-Bag-Perfect-Headphone-For.jpg_Q90.jpg_.webp"
+        imgSrc:"https://geekygimp.com/wp-content/uploads/2018/11/HeadphonesBlog.jpg"
 }, {
         typeOfCatalog:"Case",
-        imgSrc:"https://ae01.alicdn.com/kf/HTB1ErORck5E3KVjSZFCq6zuzXXaG/360-237-480MM-Tempered-Glass-ATX-Gaming-Computer-RGB-Air-Cool-Water-Cooling-PC-Case-Mainframe.jpg_Q90.jpg_.webp"
+        imgSrc:"https://c4.wallpaperflare.com/wallpaper/592/866/490/computer-technology-pc-master-race-pc-gaming-wallpaper-preview.jpg"
 }
 ]
 export default AllArrayOfShopsCatalog;

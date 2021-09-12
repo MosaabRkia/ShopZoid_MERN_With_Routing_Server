@@ -26,7 +26,7 @@ class MainPageAfterLogin extends Component {
           {
   AllArrayOfShopsCatalog.map((e,index)=>{
   return (<div id="catalogPath">  <CatalogItem 
-    ToLink={`/ItemsPage-${index}`}
+    ToLink={`/Catalog/${e.typeOfCatalog}`}
     imgSrc={e.imgSrc}
     catalogName={e.typeOfCatalog}
     index={index}
@@ -35,7 +35,7 @@ class MainPageAfterLogin extends Component {
   })
 }
           </div>
-          <GifImages srcImg="https://images.vice.com/motherboard/content-images/article/no-id/1483632035224260.gif" />
+          <GifImages srcImg="https://thumbs.gfycat.com/UntidyUltimateAlaskanhusky-size_restricted.gif" />
         </Animated>
       </div>
     );

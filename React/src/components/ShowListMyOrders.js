@@ -15,7 +15,7 @@ setTotalOrder(x.toFixed(2))
 
 function confirmOrder(){
   let id = props.orderId
-  fetch('/confirmOrder',{
+  fetch('/user/confirmOrder',{
     method:"POST",
     headers:{
       "Content-Type":"application/json"

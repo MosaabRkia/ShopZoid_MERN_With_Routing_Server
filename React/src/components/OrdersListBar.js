@@ -8,18 +8,23 @@ export default function OrdersListBar(props) {
 
     useEffect(()=>{
         const id = props.e.userId
-        fetch('/userName',{
+        // console.log(id)
+        fetch('/admin/getUserName',{
             method:'POST',
             headers:{
                 "Content-Type":"application/json"
             },
             body:JSON.stringify({id})
-        }).then(r=>r.json()).then(data=>setUserName(data.fullName))
+        }).then(r=>r.json()).then(data=>{
+            setUserName(data.fullName)
+        })
     },[])
+
+
     function changeStatus(){
         if(statusChange !== null && statusChange !== "unknown" && statusChange !== "change status"){
             const id = props.e._id;
-fetch('/changeStatus',{
+fetch('/admin/changeStatus',{
     method:"POST",
     headers:{"Content-Type":"application/json"},
     body:JSON.stringify({id,statusChange})

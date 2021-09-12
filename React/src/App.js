@@ -107,18 +107,18 @@ function App(props) {
           </Animated>
         </Route>
 
-        {AllArrayOfShopsCatalog.map((e, index) => {
-              return (
-                //Create Pages With PATH
-                <Route exact path={`/ItemsPage-${index}`}>
+        {/* {AllArrayOfShopsCatalog.map((e) => {
+              return ( */}
+                {/* //Create Pages With PATH */}
+                <Route exact path={`/Catalog/:typeOfCatalog`}>
                   <ItemsPage
-                    typeOfCatalog={e.typeOfCatalog}
+                    // typeOfCatalog={e.typeOfCatalog}
                   />
                 </Route>
               );
-            })}
+            {/* })} */}
 
-        <Route exact path="/MainPage">
+        <Route exact path="/Home">
           <Animated
             animationIn="fadeIn"
             animationOut="rotateOutDownRight"
@@ -158,7 +158,7 @@ function App(props) {
           <CartPage /* AddOrderPlaced={AddOrderPlaced} cartArray={cartArray}*//>
         </Route>         
 
-        <Route exact path="/ItemPage">
+        <Route exact path="/ItemPage/:id">
           <ItemPage />
         </Route>
 

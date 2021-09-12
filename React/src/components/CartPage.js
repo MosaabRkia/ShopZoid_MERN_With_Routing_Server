@@ -14,15 +14,15 @@ import NavBar from "./NavBar";
 
 function updateCartPage(){
 setTimeout(()=>{
-  fetch('/get-CartList').then(r=>r.json()).then(data=>setList(data.cartList))
-  fetch('/gettotalCart').then(r=>r.json()).then(data=>setTotal(data.total))
+  fetch('/user/cartList').then(r=>r.json()).then(data=>setList(data.cartList))
+  fetch('/user/gettotalCart').then(r=>r.json()).then(data=>setTotal(data.total))
 },1000)
 }
 
 
 
     const RemoveOne=(e1)=>{
-fetch('/remove-CartList',{
+fetch('/user/removeCartList',{
   method:"POST",
   headers:{"Content-Type":"application/json"},
   body:JSON.stringify({id:e1})
@@ -36,14 +36,14 @@ fetch('/remove-CartList',{
       console.log(id,quantity)
       if(quantity <= 0)
       {
-         fetch('/changeQuantity',{
+         fetch('/user/changeQuantity',{
         method:"POST",
         headers:{"Content-Type":"application/json"},
         body:JSON.stringify({id,quantity:1})
       })
       }
       else{
-        fetch('/changeQuantity',{
+        fetch('/user/changeQuantity',{
           method:"POST",
           headers:{"Content-Type":"application/json"},
           body:JSON.stringify({id,quantity})
@@ -61,7 +61,7 @@ function PayAll(){
 
   return (
     <div style={{minWidth:"375px",maxWidth:"600px",margin:"auto"}}>
-      <NavBar Page="CartPage" toLink="/MainPage" />
+      <NavBar Page="CartPage" toLink="/Home" />
       <ul key="List" className="list-group">
         {  
             !!list && list.map((e) => {

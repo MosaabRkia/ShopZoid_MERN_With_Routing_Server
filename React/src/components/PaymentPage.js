@@ -9,8 +9,8 @@ function PaymentPage(props) {
      let [total,setTotal] = useState(0); 
 
      useEffect(()=>{
-         fetch('/get-CartList').then(r=>r.json()).then(data=>setList(data.cartList));
-         fetch('/gettotalCart').then(r=>r.json()).then(data=>setTotal(data.total))
+         fetch('/user/cartList').then(r=>r.json()).then(data=>setList(data.cartList));
+         fetch('/user/gettotalCart').then(r=>r.json()).then(data=>setTotal(data.total))
      },[])
     return (
         <div style={{minWidth:"375px",maxWidth:"600px",margin:"auto"}}>
